@@ -34,6 +34,7 @@ namespace Incode.Prototype
             if (GameManager.Instance.CurrentGameState != GameManager.GameState.DRAW && selectedCard == null)
             {
                 selectedCard = entity;
+                DeckManager.Instance.MoveCardFromHand(selectedCard);
             }
         }
 
@@ -50,8 +51,15 @@ namespace Incode.Prototype
                         RaycastHit hit;
                         if (Physics.Raycast(mouseRay, out hit, 100f, buildableMask.value))
                         {
-                            entity.CardAction.EnqueueAction(hit.point);
-                            playerStatus.currentEnergy -= entity.CardAction.EnergyCost;
+                            if (entity.CardAction.EnqueueAction(hit.point))
+                            {
+                                playerStatus.currentEnergy -= entity.CardAction.EnergyCost;
+                                DeckManager.Instance.DiscardCard(entity);
+                            }
+                            else
+                            {
+                                DeckManager.Instance.RestoreCardToHand(entity);
+                            }
                         }
                     }
                 }

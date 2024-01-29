@@ -10,6 +10,9 @@ namespace Incode.Prototype
         private int health = 0;
         public int Health { get { return health; } }
         private int maxHealth = 0;
+        public int MaxHealth { get { return maxHealth; } }
+
+        public bool IsDead { get { return health <= 0; } }
 
         private float moveSpeed = 0f;
         public float MoveSpeed { get { return moveSpeed; } }
@@ -29,6 +32,7 @@ namespace Incode.Prototype
             Debug.Log("Enemy hit!");
             Debug.Assert(damage >= 0);
             health -= damage;
+            unitEntity.UnitVFX.PlayHitEffects();
             if (health <= 0)
             {
                 KillUnit();

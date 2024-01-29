@@ -47,7 +47,7 @@ namespace Incode.Prototype
 
             if (GameManager.Instance.CurrentGameState == GameManager.GameState.BATTLE)
             {
-
+                //--- Find nearest target ---
                 if (entityTarget == null)
                 {
                     //TODO(BEN): Avoid alloc 2024-01-27
@@ -84,8 +84,10 @@ namespace Incode.Prototype
                         unitEntity.PathAgent.canMove = false;
                     }
 
-                    if (gameManager.TickTime - lastAttackTime >= attackRate)
+                    if (gameManager.TickTime - lastAttackTime >= attackRate && targetDistance < attackRange)
                     {
+                        unitEntity.UnitVFX.PlayAttackEffect();
+
                         entityTarget.UnitStatus.Damage(attackDamage);
                         if (entityTarget.UnitStatus.Health <= 0) { entityTarget = null; }
 

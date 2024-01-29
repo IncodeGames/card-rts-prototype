@@ -16,11 +16,14 @@ namespace Incode.Prototype
         private ITickable tickable = null;
         public ITickable Tickable { get { return tickable; } }
 
-        private UnitStatus unitStatus = null;
-        public UnitStatus UnitStatus { get { return unitStatus; } }
-
         private AIPath pathAgent = null;
         public AIPath PathAgent { get { return pathAgent; } }
+
+        private UnitVFX unitVFX = null;
+        public UnitVFX UnitVFX { get { return unitVFX; } }
+
+        private UnitStatus unitStatus = null;
+        public UnitStatus UnitStatus { get { return unitStatus; } }
 
         private DataMaps dataMaps = null;
         public DataMaps DataMaps { get { return dataMaps; } }
@@ -29,6 +32,7 @@ namespace Incode.Prototype
         {
             pathAgent = this.GetComponent<AIPath>();
             tickable = this.GetComponent<ITickable>();
+            unitVFX = this.GetComponent<UnitVFX>();
 
             ReferenceManager.Instance.TryGetReference<DataMaps>(out dataMaps);
             UnitData.UnitStatistics stats = dataMaps.unitData.unitStatsLookup[unitID];

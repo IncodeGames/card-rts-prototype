@@ -11,19 +11,20 @@ namespace Incode.Prototype
         public enum GameState
         {
             STARTUP = 0,
-            STRATEGY = 1,
-            DRAW = 2,
+            DRAW = 1,
+            STRATEGY = 2,
             BATTLE = 3,
             GAME_END = 4,
         }
 
-        private GameState currentGameState = GameState.STRATEGY;
+        private GameState currentGameState = GameState.STARTUP;
         public GameState CurrentGameState { get { return currentGameState; } }
 
         public List<ITickable> simulationTickables = new List<ITickable>();
 
         public float TimeScale { get; set; }
         public float Time { get; private set; }
+        public float DeltaTime { get; private set; }
         public float TickTime { get; private set; }
 
         public float BattleElapsed { get { return BATTLE_DURATION - (TickTime - lastBattleTickElapsed); } }
@@ -52,6 +53,7 @@ namespace Incode.Prototype
         {
             TimeScale = 1.0f;
 
+            DeckManager.Instance.CreateDeck();
             playerStatus.currentEnergy = 1;
         }
 
@@ -61,14 +63,21 @@ namespace Incode.Prototype
             currentGameState = GameState.BATTLE;
         }
 
+        public void OnDrawComplete()
+        {
+            currentGameState = GameState.STRATEGY;
+        }
+
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (currentGameState == GameState.STARTUP && Time > 3.0f)
             {
-                currentGameState = GameState.BATTLE;
+                currentGameState = GameState.DRAW;
+                DeckManager.Instance.DrawCards();
             }
 
             Time += UnityEngine.Time.unscaledDeltaTime * TimeScale;
+            DeltaTime = UnityEngine.Time.unscaledDeltaTime * TimeScale;
 
             if (currentGameState == GameState.BATTLE)
             {
@@ -76,7 +85,8 @@ namespace Incode.Prototype
 
                 if (TickTime > lastBattleTickElapsed + BATTLE_DURATION)
                 {
-                    currentGameState = GameState.STRATEGY;
+                    currentGameState = GameState.DRAW;
+                    DeckManager.Instance.DrawCards();
                     playerStatus.currentEnergy += 3;
 
                     lastBattleTickElapsed = TickTime;

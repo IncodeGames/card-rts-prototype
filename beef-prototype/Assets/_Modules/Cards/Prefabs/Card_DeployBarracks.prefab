@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: cardID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4370744257607602859, guid: 20a87344c32ab8942991558a8802eda4,
+        type: 3}
+      propertyPath: eventTrigger
+      value: 
+      objectReference: {fileID: 2580789199663164758}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a87344c32ab8942991558a8802eda4, type: 3}
 --- !u!1 &2580789199663164756 stripped
@@ -165,5 +170,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d5ab2e81f336c4b9098345328afa95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2580789199663164758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4370744257607602853, guid: 20a87344c32ab8942991558a8802eda4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2267789619385991155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580789199663164756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

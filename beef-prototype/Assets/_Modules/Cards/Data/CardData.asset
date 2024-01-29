@@ -34,7 +34,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
@@ -53,6 +53,78 @@ MonoBehaviour:
     - Name: description
       Entry: 1
       Data: Deploy a barracks to train marines.
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: Incode.Prototype.CardData+CardMetadata, Assembly-CSharp
+    - Name: energyCost
+      Entry: 3
+      Data: 3
+    - Name: name
+      Entry: 1
+      Data: Glaive Hero
+    - Name: description
+      Entry: 1
+      Data: Summon a hero wielding a glaive to fight for you.
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: Incode.Prototype.CardData+CardMetadata, Assembly-CSharp
+    - Name: energyCost
+      Entry: 3
+      Data: 2
+    - Name: name
+      Entry: 1
+      Data: Heal Hero
+    - Name: description
+      Entry: 1
+      Data: Heals your current hero by <color=#66cdaa>50</color>.
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: Incode.Prototype.CardData+CardMetadata, Assembly-CSharp
+    - Name: energyCost
+      Entry: 3
+      Data: 4
+    - Name: name
+      Entry: 1
+      Data: Orbital Strike
+    - Name: description
+      Entry: 1
+      Data: Deal damage to enemies in a small area of effect.
     - Name: 
       Entry: 8
       Data: 
